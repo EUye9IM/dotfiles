@@ -42,4 +42,20 @@ bindkey '^[[Z' reverse-menu-complete
 # alias
 
 (( $+commands[nvim] )) && alias vim='nvim'
+# git log
+# basic
+alias gitlog='git log --all --decorate --oneline --graph'
+# in case you need more information
+#   alias gitlog="git log --date=short --date-order --all --graph --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad - %cr) %C(bold cyan)<%an>%Creset'"
+
+# proxy
+# export PROXY_SERVE
+alias proxy-on="export ALL_PROXY=$PROXY_SERVE"
+alias proxy-off="unset ALL_PROXY"
+PROXY_TEST_ADDR="www.google.com"
+alias proxy-test='curl -m 3 -s -o /dev/null $PROXY_TEST_ADDR \
+	-w "%{http_code} %{time_connect}" | \
+	awk "{printf \"$PROXY_TEST_ADDR: Code:%-4d Delay:%.2fms\",\$1,(\$2*1000)}"| \
+	xargs -I {} echo "{}"'
+
 

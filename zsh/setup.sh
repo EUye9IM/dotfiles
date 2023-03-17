@@ -10,7 +10,10 @@ cp zshenv   ~/.zshenv
 cp zshrc    ~/.zshrc
 cp p10k ~/.p10k.zsh
 
-# zsh -c "export LANG=$LANG; source ~/.zshrc; zplug install"
+export LANG=${LANG:-C.UTF8}
+zsh -c "source ~/.zshrc; zinit update"
 chsh -s $(zsh -c 'which zsh')
+exec zsh
 
 echo done.
+
