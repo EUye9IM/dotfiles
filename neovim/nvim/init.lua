@@ -1,5 +1,7 @@
 require("user/options")
-require("user/plugins")
 require("user/clipboard")
-require("user/comp-setup")
+require("user/packer")
+require("user/plugins")
+require("user/completion")
+require("user/lsp")
 
