@@ -36,7 +36,6 @@ function do_sub_scripts() {
 		shift 2
 		local select_set=${*:-$(ls $path)}
 	fi
-	echo $select_set
 
 	for dir in $select_set; do
 		if [[ -d $path/$dir && -f $path/$dir/$script_name ]]; then
