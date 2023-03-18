@@ -12,6 +12,6 @@ echo
 
 update_repo_cache
 
-do_sub_scripts . install.sh
+do_sub_scripts . install.sh $*
 
 echo finish install.

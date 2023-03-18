@@ -10,6 +10,6 @@ echo
 echo OS = $TARGET_OS
 echo
 
-do_sub_scripts . setup.sh
+do_sub_scripts . setup.sh $*
 
 echo finish setup.
