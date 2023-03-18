@@ -2,7 +2,10 @@
 offset_encoding = 'utf-16'
 
 require("user/options")
-require("user/plugins")
+require("user/keymap")
 require("user/clipboard")
-require("user/comp-setup")
+require("user/packer")
+require("user/plugins")
+require("user/completion")
+require("user/lsp")
 

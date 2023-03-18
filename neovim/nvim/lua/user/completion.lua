@@ -1,4 +1,3 @@
-
 -- from `https://github.com/LunarVim/Neovim-from-scratch`
 
 local cmp_status_ok, cmp = pcall(require, "cmp")
