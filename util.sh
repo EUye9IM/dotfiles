@@ -1,16 +1,19 @@
 #!/bin/bash
 
+# 支持的操作系统列表
 OS_LIST=(
 	"Ubuntu"
 	"Rocky"
 )
 
+# 抛出异常停止脚本
 function raise_error() {
 	echo Error: ${BASH_SOURCE[1]}:${BASH_LINENO[0]} "$*"
 	exit -1
 }
 
-function get_os() {
+# 检测操作系统
+function _get_os() {
 	for os in ${OS_LIST[@]}; do
 		if cat /etc/*release* | grep -q $os; then
 			echo $os
@@ -19,18 +22,23 @@ function get_os() {
 	done
 	echo "unknown"
 }
-TARGET_OS=$(get_os)
+# 操作系统
+TARGET_OS=$(_get_os)
 
+# 执行子目录脚本，子目录可选
+# path, script_name, select sub dirs
 function do_sub_scripts() {
-	# path, script_name
-	if [[ $# -ne 2 ]]; then
-		raise_error "do_sub_scripts() need 2 arguments"
+	if [[ $# -lt 2 ]]; then
+		raise_error "do_sub_scripts() need st least 2 arguments"
 	else
 		local path=$1
 		local script_name=$2
+		shift 2
+		local select_set=${*:-$(ls $path)}
 	fi
+	echo $select_set
 
-	for dir in $(ls $path); do
+	for dir in $select_set; do
 		if [[ -d $path/$dir && -f $path/$dir/$script_name ]]; then
 			echo ' ==> ' $path/$dir/$script_name
 			echo
@@ -46,11 +54,13 @@ function do_sub_scripts() {
 	done
 }
 
+# 所在目录
 function locate_dir(){
 	local path=$(pwd)
 	echo ${path##*/}
 }
 
+# 更新软件源
 function update_repo_cache(){
 	case $TARGET_OS in
 		Ubuntu)
@@ -68,10 +78,11 @@ function update_repo_cache(){
 	fi
 }
 
+# 安装软件
 function install_package(){
 	# package_name
 	if [[ $# -lt 1 ]]; then
-		raise_err "install_package need at least 1 argument"
+		return
 	else
 		local pkg_name="$*"
 	fi
@@ -91,10 +102,13 @@ function install_package(){
 		raise_error 
 	fi
 }
+
+# 重新安装软件
 function reinstall_package(){
+	# 计划弃用
 	# package_name
 	if [[ $# -lt 1 ]]; then
-		raise_err "reinstall_package need at least 1 argument"
+		return
 	else
 		local pkg_name="$*"
 	fi
