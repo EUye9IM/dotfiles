@@ -25,4 +25,12 @@ if lualine_ok then
 	lualine.setup()
 end
 
+local autopairs_ok, autopairs = pcall(require, "nvim-autopairs")
+if autopairs_ok then
+	autopairs.setup {}
+end
 
+local nvim_tree_ok, nvim_tree = pcall(require, "nvim-tree")
+if nvim_tree_ok then
+	nvim_tree.setup {}
+end
