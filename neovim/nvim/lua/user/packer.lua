@@ -1,10 +1,10 @@
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-augroup packer_user_config
-autocmd!
-autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-augroup end
-]]
+-- vim.cmd [[
+-- augroup packer_user_config
+-- autocmd!
+-- autocmd BufWritePost packer.lua source <afile> | PackerSync
+-- augroup end
+-- ]]
 
 vim.cmd [[packadd packer.nvim]]
 
@@ -63,11 +63,17 @@ return require('packer').startup(function(use)
 		end
 	}
 	use "windwp/nvim-autopairs"
+	use "terrortylor/nvim-comment"
 	-- statusline
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = "require('lualine').setup()",
+	}
+	use {
+		'kyazdani42/nvim-tree.lua',
+		-- need "Hack Nerd Font"
+		-- requires = 'kyazdani42/nvim-web-devicons'
 	}
 
 end)

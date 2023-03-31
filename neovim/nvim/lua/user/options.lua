@@ -20,11 +20,11 @@ local options = {
 	background = dark,
 	encoding = "utf-8",
 	fileformat = "unix",
-	fileencodings = { "ucs-bom", "utf-8", "gb18030", "default", "latin1"},
-	backspace = {"indent", "eol", "start"},
+	fileencodings = { "ucs-bom", "utf-8", "gb18030", "default", "latin1" },
+	backspace = { "indent", "eol", "start" },
 	undofile = true,
 	swapfile = false,
-	display = {"uhex", "lastline"},
+	display = { "uhex", "lastline" },
 	linebreak = true,
 	cursorline = true,
 }
@@ -36,4 +36,11 @@ end
 
 vim.wo.colorcolumn = '81'
 
-
+-- https://cloud.tencent.com/developer/article/1722577
+vim.cmd [[
+augroup relative_numbser
+autocmd!
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+augroup end
+]]

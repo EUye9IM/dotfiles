@@ -6,20 +6,19 @@ NAME=$(locate_dir)
 
 echo Setting up $NAME ...
 
-echo Copying config files ...
-rm -rf ~/.config/nvim
-mkdir -p ~/.config
-cp -r nvim ~/.config/nvim
+RM ~/.config/nvim/plugin
+MKDIR ~/.config/nvim
+CP nvim/* ~/.config/nvim
 
-echo Synchronizing plugs ...
 # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync' -c 'PackerCompile'
 
-echo "Changing Git's default editor ..."
 git config --global core.editor "nvim"
-
-echo "Changing Git's default editor ..."
-git config --global core.editor "nvim"
+git config --global diff.tool "nvimdiff"
+git config --global merge.tool "nvimdiff"
+git config --global difftool.prompt false
+git config --global mergetool.prompt false
+git config --global mergetool.keepBackup false
 
 echo done.
 
