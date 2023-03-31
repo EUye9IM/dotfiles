@@ -5,7 +5,17 @@ source ../util.sh
 NAME=$(locate_dir)
 
 echo installing $NAME ...
-install_package curl git
+
+# define requirements and target
+target=$NAME
+requirements="curl git"
+version=
+
+# preparing
+install_package $requirements
+remove_package $target
+
+# do auther something ...
 
 case $TARGET_OS in
 Rocky)
@@ -14,7 +24,7 @@ Rocky)
 	;;
 esac
 
-reinstall_package zsh
+install_package $target
 
 source zshenv
 

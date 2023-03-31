@@ -61,6 +61,7 @@ function locate_dir(){
 
 # 更新软件源
 function update_repo_cache(){
+	echo "Updating sources ..."
 	case $TARGET_OS in
 		Ubuntu)
 			apt update
@@ -85,6 +86,7 @@ function install_package(){
 	else
 		local pkg_name="$*"
 	fi
+	echo "Installing $pkg_name ..."
 
 	case $TARGET_OS in
 		Ubuntu)
@@ -102,22 +104,22 @@ function install_package(){
 	fi
 }
 
-# 弃用-重新安装软件
-function reinstall_package(){
+# 删除软件
+function remove_package(){
 	# package_name
 	if [[ $# -lt 1 ]]; then
 		return
 	else
 		local pkg_name="$*"
 	fi
+	echo "Removing $pkg_name ..."
 
 	case $TARGET_OS in
 		Ubuntu)
-			apt --reinstall install -y $pkg_name
+			apt --autoremove --pure -y $pkg_name
 			;;
 		Rocky)
 			dnf remove -y $pkg_name
-			dnf install -y $pkg_name
 			;;
 		*)
 			raise_error "unsupport OS"
@@ -134,6 +136,8 @@ function RM(){
 	if [[ $# -lt 1 ]]; then
 		return
 	fi
+	echo "Removing $* ..."
+
 	rm -rf $*
 }
 
@@ -143,6 +147,8 @@ function MKDIR(){
 	if [[ $# -lt 1 ]]; then
 		return
 	fi
+	echo "Making directory $* ..."
+
 	mkdir -p $*
 }
 
@@ -152,6 +158,7 @@ function CP(){
 	if [[ $# -lt 2 ]]; then
 		return
 	fi
+	echo "Copying to ${!#} ..."
 	cp -rfb $*
 }
 
