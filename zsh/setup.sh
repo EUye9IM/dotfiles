@@ -6,9 +6,9 @@ NAME=$(locate_dir)
 
 echo setting up $NAME ...
 
-cp zshenv   ~/.zshenv
-cp zshrc    ~/.zshrc
-cp p10k ~/.p10k.zsh
+CP zshenv ~/.zshenv
+CP zshrc  ~/.zshrc
+CP p10k   ~/.p10k.zsh
 
 export LANG=${LANG:-C.UTF8}
 zsh -c "source ~/.zshrc; zinit update"

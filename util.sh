@@ -53,7 +53,7 @@ function do_sub_scripts() {
 	done
 }
 
-# 所在目录
+# 父目录名
 function locate_dir(){
 	local path=$(pwd)
 	echo ${path##*/}
@@ -102,9 +102,8 @@ function install_package(){
 	fi
 }
 
-# 重新安装软件
+# 弃用-重新安装软件
 function reinstall_package(){
-	# 计划弃用
 	# package_name
 	if [[ $# -lt 1 ]]; then
 		return
@@ -129,5 +128,30 @@ function reinstall_package(){
 	fi
 }
 
+# 移除目录
+function RM(){
+	# dirs
+	if [[ $# -lt 1 ]]; then
+		return
+	fi
+	rm -rf $*
+}
 
+# 新建目录
+function MKDIR(){
+	# dirs
+	if [[ $# -lt 1 ]]; then
+		return
+	fi
+	mkdir -p $*
+}
+
+# 复制目录
+function CP(){
+	# from ... to
+	if [[ $# -lt 2 ]]; then
+		return
+	fi
+	cp -rfb $*
+}
 

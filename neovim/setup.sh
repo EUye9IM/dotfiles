@@ -6,9 +6,9 @@ NAME=$(locate_dir)
 
 echo Setting up $NAME ...
 
-rm -rf ~/.config/nvim
-mkdir -p ~/.config
-cp -r nvim ~/.config/nvim
+RM ~/.config/nvim/plugin
+MKDIR ~/.config
+CP nvim/* ~/.config/nvim
 
 # nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync' -c 'PackerCompile'
