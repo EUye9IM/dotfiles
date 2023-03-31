@@ -25,4 +25,34 @@ if lualine_ok then
 	lualine.setup()
 end
 
+local autopairs_ok, autopairs = pcall(require, "nvim-autopairs")
+if autopairs_ok then
+	autopairs.setup {}
+end
 
+local comment_ok, comment = pcall(require, "nvim_comment")
+if comment_ok then
+	comment.setup({
+  -- Linters prefer comment and line to have a space in between markers
+  marker_padding = true,
+  -- should comment out empty or whitespace only lines
+  comment_empty = false,
+  -- trim empty comment whitespace
+  comment_empty_trim_whitespace = true,
+  -- Should key mappings be created
+  create_mappings = false,
+  -- Normal mode mapping left hand side
+  line_mapping = "gcc",
+  -- Visual/Operator mapping left hand side
+  operator_mapping = "gc",
+  -- text object mapping, comment chunk,,
+  comment_chunk_text_object = "ic",
+  -- Hook function to call before commenting takes place
+  hook = nil
+})
+end
+
+local nvim_tree_ok, nvim_tree = pcall(require, "nvim-tree")
+if nvim_tree_ok then
+	nvim_tree.setup {}
+end
