@@ -116,7 +116,7 @@ function remove_package(){
 
 	case $TARGET_OS in
 		Ubuntu)
-			apt --autoremove --pure -y $pkg_name
+			apt --purge remove -y $pkg_name
 			;;
 		Rocky)
 			dnf remove -y $pkg_name

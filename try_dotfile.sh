@@ -3,8 +3,8 @@
 # support os:
 # rockylinux:9 ubuntu:latest
 
-image=rockylinux:9
-# image=ubuntu:latest
+# image=rockylinux:9
+image=ubuntu:latest
 
 echo
 echo === prepare container ===
