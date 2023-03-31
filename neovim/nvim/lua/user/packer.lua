@@ -63,6 +63,7 @@ return require('packer').startup(function(use)
 		end
 	}
 	use "windwp/nvim-autopairs"
+	use "terrortylor/nvim-comment"
 	-- statusline
 	use {
 		'nvim-lualine/lualine.nvim',
