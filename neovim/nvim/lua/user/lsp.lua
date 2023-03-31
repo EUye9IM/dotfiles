@@ -3,11 +3,11 @@ local lsp_attach = function(client, bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 	-- goto
-	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts) -- 声明
+	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)  -- 定义
+	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts) -- 实例
+	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)  -- 参考
+	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- 诊断信息
 	-- 代码格式化
 	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 	-- hover
@@ -36,4 +36,24 @@ if mason_lsp_ok and lsp_ok and nvim_lsp_ok then
 			capabilities = lsp_capabilities,
 		})
 	end
+end
+
+-- refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+if mason_lsp_ok and lsp_ok then
+	mason_lsp.setup_handlers({
+		-- you can provide targeted overrides for specific servers.
+		--[[
+		["lua_ls"] = function()
+			lsp.lua_ls.setup {
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" }
+						}
+					}
+				}
+			}
+		end,
+		]]
+	})
 end
