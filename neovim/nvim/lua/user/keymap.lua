@@ -37,3 +37,9 @@ if comment_ok then
 		opts
 	)
 end
+
+local toggleterm_ok, _ = pcall(require, "toggleterm")
+if comment_ok then
+	keymap("n", "<leader>te", "<Cmd>ToggleTerm<CR>", opts)
+	keymap("t", "<leader>te", "<Cmd>ToggleTerm<CR>", opts)
+end

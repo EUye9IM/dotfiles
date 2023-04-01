@@ -12,6 +12,9 @@ if catppuccin_ok then
 	catppuccin.setup({
 		custom_highlights = function(colors)
 			return {
+				-- NvimTreeNormal = { bg = colors.none },
+				-- Normal = { bg = colors.none },
+				-- Visual = { bg = colors.none },
 				LineNr = { fg = colors.overlay0 },
 			}
 		end,
@@ -28,11 +31,14 @@ end
 local lualine_ok, lualine = pcall(require, "lualine")
 if lualine_ok then
 	lualine.setup({
+		-- nerd fonts
+		-- [[
 		options = {
 			icons_enabled = false,
 			component_separators = { left = '|', right = '|' },
 			section_separators = { left = '', right = '' },
 		}
+		-- ]]
 	})
 end
 
@@ -68,6 +74,8 @@ if nvim_tree_ok then
 	nvim_tree.setup {
 		hijack_cursor = true,
 		hijack_unnamed_buffer_when_opening = true,
+		-- nerd fonts
+		-- [[
 		renderer = {
 			indent_markers = {
 				enable = true,
@@ -86,9 +94,10 @@ if nvim_tree_ok then
 					folder = false,
 					folder_arrow = true,
 					git = true,
-					modified = false,
+					modified = true,
 				},
 				glyphs = {
+					modified = "●",
 					folder = {
 						arrow_closed = "⮞",
 						arrow_open = "⮟",
@@ -105,9 +114,56 @@ if nvim_tree_ok then
 				}
 			},
 		},
+		-- ]]
 		hijack_directories = {
 			enable = true,
 			auto_open = true,
 		},
 	}
+end
+
+local bufferline_ok, bufferline = pcall(require, "bufferline")
+if bufferline_ok then
+	vim.opt.termguicolors = true
+	bufferline.setup({
+		options = {
+			numbers = function(opts)
+				return string.format('%s.%s', opts.ordinal, opts.lower(opts.id))
+			end,
+			indicator = {
+				style = 'underline',
+			},
+			buffer_close_icon = '✕',
+			modified_icon = '●',
+			close_icon = '✗',
+			left_trunc_marker = '⯇',
+			right_trunc_marker = '⯈',
+			diagnostics = "nvim_lsp",
+			offsets = {
+				{
+					filetype = "NvimTree",
+					text = function()
+						return vim.fn.getcwd()
+					end,
+					highlight = "Directory",
+					separator = true -- use a "true" to enable the default, or set your own character
+				}
+			},
+			-- nerd fonts
+			-- [[
+			show_buffer_icons = false,
+			-- ]]
+		}
+	})
+end
+
+local toggleterm_ok, toggleterm = pcall(require, "toggleterm")
+if toggleterm_ok then
+	toggleterm.setup({
+		start_in_insert = true,
+		persist_mode = false,
+		winbar = {
+			enabled = true,
+		},
+	})
 end

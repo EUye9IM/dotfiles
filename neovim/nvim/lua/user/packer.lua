@@ -49,8 +49,10 @@ return require('packer').startup(function(use)
 	use "windwp/nvim-autopairs"
 	use "terrortylor/nvim-comment"
 	-- statusline
-	-- need "Hack Nerd Font"
+	-- nerd fonts
 	-- use 'kyazdani42/nvim-web-devicons'
 	use 'nvim-lualine/lualine.nvim'
 	use 'kyazdani42/nvim-tree.lua'
+	use { 'akinsho/bufferline.nvim', tag = "v3.*" }
+	use { "akinsho/toggleterm.nvim", tag = '*' }
 end)
