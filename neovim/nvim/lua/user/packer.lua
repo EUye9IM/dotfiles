@@ -8,11 +8,11 @@
 
 vim.cmd [[packadd packer.nvim]]
 
-require('packer').init{
+require('packer').init {
 	display = {
 		open_fn = function()
 			return require("packer.util").
-			float{ border = "rounded" }
+			float { border = "rounded" }
 		end,
 	},
 }
@@ -30,54 +30,27 @@ return require('packer').startup(function(use)
 	use "jose-elias-alvarez/null-ls.nvim" -- formatters and linters
 
 	-- cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
-	use "hrsh7th/cmp-buffer" -- buffer completions
-	use "hrsh7th/cmp-path" -- path completions
-	use "hrsh7th/cmp-cmdline" -- cmdline completions
-	use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-	use "saadparwaiz1/cmp_luasnip" -- snippet completions
+	use "hrsh7th/nvim-cmp"          -- The completion plugin
+	use "hrsh7th/cmp-buffer"        -- buffer completions
+	use "hrsh7th/cmp-path"          -- path completions
+	use "hrsh7th/cmp-cmdline"       -- cmdline completions
+	use "hrsh7th/cmp-nvim-lsp"      -- lsp completions
+	use "saadparwaiz1/cmp_luasnip"  -- snippet completions
 	-- snippets
-	use "L3MON4D3/LuaSnip" --snippet engine
+	use "L3MON4D3/LuaSnip"          --snippet engine
 	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- theme
 	use {
 		"catppuccin/nvim",
-		as = "catppuccin",
-		config = function()
-			require('catppuccin').setup({
-				custom_highlights = function(colors)
-					return {
-						LineNr = { fg = colors.overlay0 },
-					}
-				end,
-				transparent_background = true,
-			})
-			vim.cmd("colorscheme catppuccin-frappe")
-		end
+		as = "catppuccin"
 	}
-	use {
-		"luochen1990/rainbow",
-		config = function()
-			vim.g["rainbow_active"] = 1
-		end
-	}
+	use "luochen1990/rainbow"
 	use "windwp/nvim-autopairs"
 	use "terrortylor/nvim-comment"
 	-- statusline
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		config = "require('lualine').setup()",
-	}
-	use {
-		'kyazdani42/nvim-tree.lua',
-		-- need "Hack Nerd Font"
-		-- requires = 'kyazdani42/nvim-web-devicons'
-	}
-
+	-- need "Hack Nerd Font"
+	-- use 'kyazdani42/nvim-web-devicons'
+	use 'nvim-lualine/lualine.nvim'
+	use 'kyazdani42/nvim-tree.lua'
 end)
-
-
-
-
