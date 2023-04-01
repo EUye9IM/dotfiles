@@ -16,7 +16,7 @@ zinit 安装于 /opt/zinit
 ## 一些有别于原本zsh的操作
 
 - powerlevel10k: `p10k configure` 用于重新设定主题风格
-- zsh-autosuggestions: ctrl-f 或右方向键补全命令
+- zsh-autosuggestions: ctrl-f 或右方向键补全命令（字符），ctrl-e 补全整行
 - z: z命令自动补全跳转目录，详情查看 `z --help`
 - shift tab 到达上一个补全（这个居然不是内置的）
 
