@@ -119,6 +119,9 @@ if nvim_tree_ok then
 			enable = true,
 			auto_open = true,
 		},
+		git = {
+			ignore = false,
+		},
 	}
 end
 
