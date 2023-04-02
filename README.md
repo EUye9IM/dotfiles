@@ -107,7 +107,6 @@ cp .tmpl docker
 
 ## TODO
 
-1. vim buffer-line
-2. user in the 'bad network environment' need mirrors
-3. install_from_url install_from_github
-4. vim layout
+1. user in the 'bad network environment' need mirrors
+2. install_from_url install_from_github
+

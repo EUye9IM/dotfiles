@@ -42,7 +42,7 @@ local toggleterm_ok, _ = pcall(require, "toggleterm")
 if toggleterm_ok then
 	if nvim_tree_ok then
 		-- 保持 nvim-tree 最高层
-		keymap("n", "<leader>te", "<Cmd>ToggleTerm<CR><Cmd>NvimTreeToggle<CR><Cmd>NvimTreeToggle<CR><C-w><C-w>", opts)
+		keymap("n", "<leader>te", "<Cmd>ToggleTerm<CR><Cmd>NvimTreeToggle<CR><Cmd>NvimTreeToggle<CR><C-w><C-w><C-w><C-w>", opts)
 	else
 		keymap("n", "<leader>te", "<Cmd>ToggleTerm<CR>", opts)
 	end
