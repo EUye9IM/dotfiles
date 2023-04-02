@@ -168,5 +168,12 @@ if toggleterm_ok then
 		winbar = {
 			enabled = true,
 		},
+		-- on_open = function(_)
+		-- 	if nvim_tree_ok then
+		-- 		local api = require('nvim-tree.api')
+		-- 		api.tree.toggle()
+		-- 		api.tree.toggle()
+		-- 	end
+		-- end,
 	})
 end
