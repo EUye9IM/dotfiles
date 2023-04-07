@@ -6,7 +6,6 @@ NAME=$(locate_dir)
 
 echo setting up $NAME ...
 
-CP zshenv ~/.zshenv
 CP zshrc  ~/.zshrc
 CP p10k   ~/.p10k.zsh
 

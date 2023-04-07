@@ -26,13 +26,4 @@ esac
 
 install_package $target
 
-source zshenv
-
-ZINIT_HOME=${ZINIT[BIN_DIR]}
-
-echo $ZINIT_HOME
-
-[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d $ZINIT_HOME/.git ] && git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-
 echo done.

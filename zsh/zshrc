@@ -1,7 +1,7 @@
-ZINIT_HOME=$ZINIT[BIN_DIR]
-
-# [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-# [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# install zinit
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone --depth 1 https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -49,7 +49,7 @@ alias gitlog='git log --all --decorate --oneline --graph'
 #   alias gitlog="git log --date=short --date-order --all --graph --pretty=format:'%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)(%ad - %cr) %C(bold cyan)<%an>%Creset'"
 
 # proxy
-# export PROXY_SERVE
+# export PROXY_SERVE=''
 alias proxy-on='export ALL_PROXY=$PROXY_SERVE'
 alias proxy-off="unset ALL_PROXY"
 PROXY_TEST_ADDR="www.google.com"
@@ -59,6 +59,7 @@ alias proxy-test='curl -m 3 -s -o /dev/null $PROXY_TEST_ADDR \
 	xargs -I {} echo "{}"'
 
 # zinit plugins
+# set <right> partial accept
 ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=(
 	end-of-line
 	vi-forward-char
@@ -76,3 +77,5 @@ ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(
 	vi-find-next-char
 	vi-find-next-char-skip
 )
+
+autoload -U compinit && compinit

@@ -2,8 +2,6 @@
 
 使用 zinit 作为包管理器
 
-zinit 安装于 /opt/zinit
-
 ## 引用插件一览
 
 - zsh-users/zsh-syntax-highlighting: 语法高亮
