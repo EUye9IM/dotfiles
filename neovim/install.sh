@@ -17,22 +17,20 @@ remove_package $target
 
 # do auther something ...
 case $TARGET_OS in
-Ubuntu)
-	curl -L -o neovim.deb https://github.com/neovim/neovim/releases/download/v$version/nvim-linux64.deb
-	install_package ./neovim.deb
-	rm -f neovim.deb
-	;;
-Rocky)
-	install_package epel-release
-	install_package neovim-$version
-	;;
-*)
-	raise_error "unsupport OS"
-	;;
+	Ubuntu)
+		install_url https://github.com/neovim/neovim/releases/download/v$version/nvim-linux64.deb
+		;;
+	Rocky)
+		install_package epel-release
+		install_package neovim-$version
+		;;
+	*)
+		raise_error "unsupport OS"
+		;;
 esac
 
 RM /usr/local/share/nvim/site/pack/packer/opt/packer.nvim
-git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-/usr/local/share/nvim/site/pack/packer/opt/packer.nvim
+git_clone https://github.com/wbthomason/packer.nvim \
+	/usr/local/share/nvim/site/pack/packer/opt/packer.nvim
 
 echo done.

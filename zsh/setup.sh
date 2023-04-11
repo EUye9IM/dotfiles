@@ -10,8 +10,8 @@ CP zshrc  ~/.zshrc
 CP p10k   ~/.p10k.zsh
 
 export LANG=${LANG:-C.UTF8}
-zsh -c "source ~/.zshrc; zinit update"
 chsh -s $(zsh -c 'which zsh')
-
+zsh -c "source ~/.zshrc; zinit update"
+exec zsh
 echo done.
 

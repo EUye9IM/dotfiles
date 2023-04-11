@@ -74,7 +74,7 @@ function update_repo_cache(){
 			;;
 	esac
 	if [[ $? -ne 0 ]]; then
-		raise_error 
+		raise_error "update failed"
 	fi
 }
 
@@ -100,8 +100,43 @@ function install_package(){
 			;;
 	esac
 	if [[ $? -ne 0 ]]; then
-		raise_error 
+		raise_error "install $pkg_name failed"
 	fi
+}
+
+# 从 git clone
+function git_clone(){
+	if [[ $# -lt 1 ]]; then
+		return
+	else
+		local git_args="$*"
+	fi
+	echo "Clone from $1"
+	install_package git
+
+	git clone --depth 1 ${git_args} || raise_error "git clone $1 failed"
+}
+
+# 从 url 安装二进制文件
+function install_url(){
+	if [[ $# -lt 1 ]]; then
+		return
+	else
+		local pkgs_url=$*
+	fi
+	echo "install $pkgs_url"
+	install_package curl
+	
+	local tempdir=$(mktemp -d) || raise_error "make temp dirctory failed"
+	trap "RM $tempdir" EXIT
+	cd ${tempdir}
+	for pkg_url in $pkgs_url;do
+		local pkg_name=${pkg_url##*/}
+		curl -L -f -# -o $pkg_name $pkgs_url || raise_error "download $pkg_name failed"
+		install_package ./$pkg_name
+		RM $pkg_name
+	done
+	cd -
 }
 
 # 删除软件
@@ -122,11 +157,11 @@ function remove_package(){
 			dnf remove -y $pkg_name
 			;;
 		*)
-			raise_error "unsupport OS"
+		!	raise_error "unsupport OS"
 			;;
 	esac
 	if [[ $? -ne 0 ]]; then
-		raise_error 
+		raise_error "remove $pkg_name failed"
 	fi
 }
 
@@ -162,3 +197,16 @@ function CP(){
 	cp -rfb $*
 }
 
+# 检查网络环境
+function check_network() {
+	# 使用全局变量 EUDOTFSTACK
+	# 整型，正值表示正常网络环境，反之亦然
+	# 为 0 则栈空，移除该变量
+	local test_host="google.com"
+	ping ${test_host} -c1 -q -W1 > /dev/null
+	if [[ $? -ne 0 ]]; then
+		echo "bad"
+	else
+		echo "good"
+	fi	
+}

@@ -67,7 +67,7 @@ sudo ./install.sh neovim zsh
 ```bash
 git clone https://github.com/EUye9IM/dotfiles
 cd dotfiles
-sudo bash try_dotfile.sh
+sudo try_dotfile.sh
 ```
 
 ## 个性化
