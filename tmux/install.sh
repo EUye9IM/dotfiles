@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../util.sh
+source ../utils.sh
 
 NAME=$(locate_dir)
 

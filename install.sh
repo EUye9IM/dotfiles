@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./util.sh
+source ./utils.sh
 
 if [[ $TARGET_OS == unknown ]]; then
 	raise_error "unsupport platform"

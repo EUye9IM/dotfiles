@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../util.sh
+source ../utils.sh
 
 NAME=$(locate_dir)
 
@@ -12,6 +12,5 @@ CP p10k   ~/.p10k.zsh
 export LANG=${LANG:-C.UTF8}
 chsh -s $(zsh -c 'which zsh')
 zsh -c "source ~/.zshrc; zinit update"
-exec zsh
 echo done.
 
