@@ -81,9 +81,7 @@ i 安装/X卸载/ctrl+f语言过滤/其余 `g?` 输出帮助界面自己看
 
 https://zhuanlan.zhihu.com/p/583324604
 
-1. nvim-scrollbar
-2. telescope
-3. Symbols-Outline
-4. gitsigns.nvim
+1. telescope
+2. Symbols-Outline
 
 

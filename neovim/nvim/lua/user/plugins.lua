@@ -177,3 +177,14 @@ if toggleterm_ok then
 		-- end,
 	})
 end
+
+local scrollbar_ok, scrollbar = pcall(require, "scrollbar")
+if scrollbar_ok then
+	scrollbar.setup()
+end
+
+local gitsigns_ok, gitsigns = pcall(require, "gitsigns")
+if gitsigns_ok then
+	gitsigns.setup()
+end
+

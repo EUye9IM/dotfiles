@@ -55,4 +55,9 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'
 	use { 'akinsho/bufferline.nvim', tag = "v3.*" }
 	use { "akinsho/toggleterm.nvim", tag = '*' }
+
+	use 'petertriho/nvim-scrollbar'
+	use "lewis6991/gitsigns.nvim"
+
+
 end)
