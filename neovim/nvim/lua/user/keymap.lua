@@ -8,7 +8,7 @@ keymap('n', ';;', ';', opts)
 local nvim_tree_ok, _ = pcall(require, "nvim-tree")
 if nvim_tree_ok then
 	keymap('n', '<leader>tt', '<cmd>NvimTreeToggle<CR>', opts)
-	keymap('n', '<leader>tf', '<cmd>NvimTreeFindFile<CR><C-w><C-w>', opts)
+	keymap('n', '<leader>tf', '<cmd>NvimTreeFindFile<CR>', opts)
 end
 
 -- nvim-comment
