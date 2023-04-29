@@ -42,6 +42,12 @@ bindkey '^[[Z' reverse-menu-complete
 # alias
 
 (( $+commands[nvim] )) && alias vim='nvim'
+# ls highlight
+if [ -x /usr/bin/dircolors ]; then
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto'
+fi
+
 # git log
 # basic
 alias gitlog='git log --all --decorate --oneline --graph'
