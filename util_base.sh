@@ -4,6 +4,7 @@
 OS_LIST=(
 	"Ubuntu"
 	"Rocky"
+	"Arch Linux"
 )
 
 # 抛出异常停止脚本
@@ -14,9 +15,9 @@ function raise_error() {
 
 # 检测操作系统
 function _get_os() {
-	for os in ${OS_LIST[@]}; do
-		if cat /etc/*release* | grep -q $os; then
-			echo $os
+	for os in "${OS_LIST[@]}"; do
+		if cat /etc/*release* | grep -q "$os"; then
+			echo "$os"
 			return
 		fi
 	done
