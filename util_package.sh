@@ -10,6 +10,11 @@ function update_repo_cache(){
 		Rocky)
 			dnf makecache
 			;;
+		"Arch Linux")
+			# https://wiki.archlinux.org/title/Pacman#Installing_packages warning
+			# pacman -Sy
+			echo "do nothing"
+			;;
 		*)
 			raise_error "unsupport OS"
 			;;
@@ -35,6 +40,9 @@ function install_package(){
 			;;
 		Rocky)
 			dnf install --allowerasing -y $pkg_name
+			;;
+		"Arch Linux")
+			pacman -S --needed --noconfirm $pkg_name
 			;;
 		*)
 			raise_error "unsupport OS"
@@ -98,11 +106,14 @@ function remove_package(){
 		Rocky)
 			dnf remove -y $pkg_name
 			;;
+		"Arch Linux")
+			pacman -R $pkg_name
+			;;
 		*)
-		!	raise_error "unsupport OS"
+			raise_error "unsupport OS"
 			;;
 	esac
-	if [[ $? -ne 0 ]]; then
-		raise_error "remove $pkg_name failed"
-	fi
+	#if [[ $? -ne 0 ]]; then
+	#	raise_error "remove $pkg_name failed"
+	#fi
 }
