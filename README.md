@@ -100,13 +100,3 @@ cp .tmpl docker
 ```
 
 然后修改里面的 install.sh 和 setup.sh 再自己添点资源文件
-
-## 卸载
-
-没写脚本，得手动删。
-
-## TODO
-
-1. user in the 'bad network environment' need mirrors
-2. install_from_url install_from_github
-

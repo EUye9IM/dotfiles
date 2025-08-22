@@ -8,9 +8,10 @@ echo setting up $NAME ...
 
 CP zshrc  ~/.zshrc
 CP p10k   ~/.p10k.zsh
+CP zsh  ~/.zsh
 
 export LANG=${LANG:-C.UTF8}
-chsh -s $(zsh -c 'which zsh')
-zsh -c "source ~/.zshrc; zinit update"
+
+zsh -c "source ~/.zshrc && zinit update"
 echo done.
 

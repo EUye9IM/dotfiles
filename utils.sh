@@ -29,7 +29,7 @@ function CP(){
 		return
 	fi
 	echo "Copying to ${!#} ..."
-	cp -rfb $*
+	cp -rf $*
 }
 
 
