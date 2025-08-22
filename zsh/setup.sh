@@ -8,7 +8,7 @@ echo setting up $NAME ...
 
 CP zshrc  ~/.zshrc
 CP p10k   ~/.p10k.zsh
-CP zsh  ~/.zsh
+CP zsh    ~/.zsh
 
 export LANG=${LANG:-C.UTF8}
 
