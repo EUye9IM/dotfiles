@@ -1,11 +1,5 @@
 # neovim
 
-大量参考 LunarVim/Neovim-from-scratch ，实现基本设定与补全
-
-## tab 设定
-
-tab 不转空格，宽 4 字符
-
 ## 默认mapleader
 
 设定为分号
@@ -83,5 +77,3 @@ https://zhuanlan.zhihu.com/p/583324604
 
 1. telescope
 2. Symbols-Outline
-
-
