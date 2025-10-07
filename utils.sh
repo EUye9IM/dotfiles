@@ -6,7 +6,7 @@ function RM(){
 	if [[ $# -lt 1 ]]; then
 		return
 	fi
-	echo "Removing $* ..."
+	echo "rm -rf $*"
 
 	rm -rf $*
 }
@@ -17,7 +17,7 @@ function MKDIR(){
 	if [[ $# -lt 1 ]]; then
 		return
 	fi
-	echo "Making directory $* ..."
+	echo "mkdir -p $*"
 
 	mkdir -p $*
 }
@@ -28,9 +28,8 @@ function CP(){
 	if [[ $# -lt 2 ]]; then
 		return
 	fi
-	echo "Copying to ${!#} ..."
-	rm -rf $2
-	cp -rf $*
+	echo "cp -rfb $*"
+	cp -rfb $*
 }
 
 
