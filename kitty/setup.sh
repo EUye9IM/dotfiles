@@ -8,6 +8,5 @@ echo setting up $NAME ...
 
 # do something...
 CP  ./kitty.conf ~/.config/kitty/kitty.conf
-# CP a b
 
 echo done.
