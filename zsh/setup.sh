@@ -13,6 +13,10 @@ CP zsh/*  ~/.zsh/
 
 export LANG=${LANG:-C.UTF8}
 
-zsh -c "source ~/.zshrc && zinit update"
+zsh -c "source ~/.zshrc"
+echo 
+echo !!
+echo run \`zinit update\` to install zsh plugins
+
 echo done.
 

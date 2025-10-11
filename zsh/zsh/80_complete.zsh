@@ -1,2 +1,2 @@
 autoload -Uz compinit
-compinit
+compinit -i
