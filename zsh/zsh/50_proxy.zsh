@@ -1,9 +1,9 @@
 # proxy
 # export PROXY_SERVE=''
-alias vpn-on='export ALL_PROXY=$PROXY_SERVE http_proxy=$PROXY_SERVE https_proxy=$PROXY_SERVE'
-alias vpn-off="unset ALL_PROXY http_proxy https_proxy"
+alias vpnon='export ALL_PROXY=$PROXY_SERVE http_proxy=$PROXY_SERVE https_proxy=$PROXY_SERVE'
+alias vpnoff="unset ALL_PROXY http_proxy https_proxy"
 PROXY_TEST_ADDR="www.google.com"
-alias vpn-test='curl -m 3 -s -o /dev/null $PROXY_TEST_ADDR \
+alias vpntest='curl -m 3 -s -o /dev/null $PROXY_TEST_ADDR \
 	-w "%{http_code} %{time_connect}" | \
 	awk "{printf \"$PROXY_TEST_ADDR: Code:%-4d Delay:%.2fms\",\$1,(\$2*1000)}"| \
 	xargs -I {} echo "{}"'

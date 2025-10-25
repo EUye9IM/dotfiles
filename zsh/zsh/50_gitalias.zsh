@@ -1,7 +1,9 @@
-alias gadd='git add'
-alias glog='git log --oneline -n3'
-alias gcommit="git commit"
-alias gpush="git push"
-alias gswitch="git switch"
-alias gcheckout="git checkout"
-alias grebase="git rebase"
+alias ga='git add'
+alias gl='git log --oneline --graph'
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gp="git push"
+alias gsw="git switch"
+alias gst="git status"
+alias gb="git branch"
+alias gcl="git clone"
