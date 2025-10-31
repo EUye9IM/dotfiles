@@ -1,5 +1,5 @@
 local options = {
-	-- clipboard = "unnamedplus",
+	clipboard = "unnamed",
 	number = true,
 	mouse = "nvi",
 	list = true,
@@ -16,7 +16,7 @@ local options = {
 	tabstop = 4,
 	shiftwidth = 4,
 	expandtab = false,
-	background = dark,
+	-- background = dark,
 	encoding = "utf-8",
 	fileformat = "unix",
 	fileencodings = { "ucs-bom", "utf-8", "gb18030", "default", "latin1" },
