@@ -16,7 +16,6 @@ RM $NVIM_CFG_DIR
 MKDIR $NVIM_CFG_DIR
 CP nvim/* $NVIM_CFG_DIR
 
-echo then run
-echo '   nvim --headless +"Lazy! sync" +qa!'
-echo to continue setup
+echo !!
+echo run \`nvim --headless +"Lazy! sync" +qa!\` to continue setup
 echo done.

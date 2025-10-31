@@ -1,9 +1,10 @@
 alias ga='git add'
-alias gl='git log --oneline --graph'
+alias gl='git log --oneline --date=short --date-order --pretty=format:"%C(auto)%h%Creset %C(auto)%d%Creset %s %C(green)<%an>%Creset %C(bold cyan)(%as - %cr)" --color'
 alias gc="git commit"
-alias gca="git commit --amend"
+alias gca="git commit --amend --reset-author --no-edit"
 alias gp="git push"
 alias gsw="git switch"
 alias gst="git status"
 alias gb="git branch"
-alias gcl="git clone"
+alias gcl="git clone --no-tags --single-branch"
+alias gsh="git show --stat --stat-width=60 --stat-graph-width=120 --dirstat"
