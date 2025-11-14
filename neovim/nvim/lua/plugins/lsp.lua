@@ -26,23 +26,41 @@ return {
             require("nvim-treesitter.configs").setup(opts)
         end
     }, {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- load the colorscheme here
-            vim.cmd([[colorscheme tokyonight-night]])
-        end
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            {"mason-org/mason.nvim", opts = {}}, "neovim/nvim-lspconfig"
+        }
     }, {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
-        opts = {}
-    }, {'dstein64/nvim-scrollview', opts = {}}, {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {"nvim-tree/nvim-web-devicons"},
-        config = function() require("nvim-tree").setup {} end
-    }, {'lewis6991/gitsigns.nvim', opts = {}},
-    {"karb94/neoscroll.nvim", opts = {}}
+        'stevearc/conform.nvim',
+
+        event = {"BufWritePre"},
+        cmd = {"ConformInfo"},
+        -- This will provide type hinting with LuaLS
+        ---@module "conform"
+        ---@type conform.setupOpts
+        opts = {
+            formatters_by_ft = {
+                ["*"] = {"codespell"},
+                ["_"] = {"trim_whitespace"}
+            },
+            default_format_opts = {lsp_format = "fallback"},
+            notify_no_formatters = true
+        },
+        keys = {
+            {
+                -- Customize or remove this keymap to your liking
+                "<leader>f",
+                function()
+                    require("conform").format({async = true})
+                end,
+                mode = "",
+                desc = "Format buffer"
+            }
+        },
+        init = function()
+            -- If you want the formatexpr, here is the place to set it
+            vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+        end
+    }
 }
