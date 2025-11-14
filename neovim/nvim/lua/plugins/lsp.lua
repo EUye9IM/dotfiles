@@ -5,6 +5,8 @@ return {
         lazy = false,
         build = ":TSUpdate",
         opts = {
+            indent = {enable = true}, ---@type lazyvim.TSFeat
+            folds = {enable = true}, ---@type lazyvim.TSFeat
             highlight = {
                 enable = true,
                 disable = function(lang, buf)
@@ -26,23 +28,10 @@ return {
             require("nvim-treesitter.configs").setup(opts)
         end
     }, {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- load the colorscheme here
-            vim.cmd([[colorscheme tokyonight-night]])
-        end
-    }, {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {'nvim-tree/nvim-web-devicons'},
-        opts = {}
-    }, {'dstein64/nvim-scrollview', opts = {}}, {
-        "nvim-tree/nvim-tree.lua",
-        version = "*",
-        lazy = false,
-        dependencies = {"nvim-tree/nvim-web-devicons"},
-        config = function() require("nvim-tree").setup {} end
-    }, {'lewis6991/gitsigns.nvim', opts = {}},
-    {"karb94/neoscroll.nvim", opts = {}}
+        "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            {"mason-org/mason.nvim", opts = {}}, "neovim/nvim-lspconfig"
+        }
+    }
 }
