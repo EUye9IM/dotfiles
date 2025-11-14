@@ -32,6 +32,15 @@ function CP(){
 	cp -rfb $*
 }
 
+function CHK(){
+	for cmd in $*;do
+		command -v $cmd &> /dev/null
+		if [[ $? -ne 0 ]]; then
+			echo '\e[33mwarn:\e[0m' command $cmd not exist.
+		fi
+	done
+}
+
 
 # 执行子目录脚本，子目录可选
 # path, script_name, select sub dirs

@@ -6,6 +6,8 @@ NAME=$(locate_dir)
 
 echo Setting up $NAME ...
 
+CHK luarocks
+
 if command -v cygpath > /dev/null 2>&1;then
     NVIM_CFG_DIR=$(nvim --headless --clean +'echo stdpath("config")' +q! 2>&1|sed 's|\\|/|g'| xargs cygpath -u)
 else
