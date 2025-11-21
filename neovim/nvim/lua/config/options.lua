@@ -32,4 +32,6 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
-vim.wo.colorcolumn = '121'
+vim.wo.colorcolumn = "121"
+
+vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<CR>", {desc = "Toggle wrap"})
