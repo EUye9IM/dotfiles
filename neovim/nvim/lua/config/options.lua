@@ -35,3 +35,4 @@ end
 vim.wo.colorcolumn = "121"
 
 vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<CR>", {desc = "Toggle wrap"})
+vim.keymap.set("i", "<localleader><localleader>", "<esc>", {desc = "Normal mode"})

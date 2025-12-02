@@ -30,4 +30,8 @@ return {
 		event = "VeryLazy",
 		opts = {},
 	},
+	{
+		"fei6409/log-highlight.nvim",
+		opts = {},
+	},
 }
