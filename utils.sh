@@ -44,9 +44,9 @@ function CHK(){
 
 # 执行子目录脚本，子目录可选
 # path, script_name, select sub dirs
-function do_sub_scripts() {
+function run_sub_scripts() {
 	if [[ $# -lt 2 ]]; then
-		raise_error "do_sub_scripts() need st least 2 arguments"
+		raise_error "run_sub_scripts() need st least 2 arguments"
 	else
 		local path=$1
 		local script_name=$2
