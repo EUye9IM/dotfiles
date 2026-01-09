@@ -6,7 +6,7 @@ NAME=$(locate_dir)
 
 echo setting up $NAME ...
 
-CHK fzf git zsh
+CHK fzf git less zsh
 
 CP zshrc  ~/.zshrc
 CP p10k   ~/.p10k.zsh
