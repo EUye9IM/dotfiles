@@ -1,5 +1,5 @@
 local options = {
-	clipboard = "unnamed",
+	clipboard = "unnamedplus",
 	number = true,
 	mouse = "nvi",
 	list = true,
