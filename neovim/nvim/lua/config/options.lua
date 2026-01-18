@@ -28,11 +28,15 @@ local options = {
 	cursorline = true,
 }
 
+
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 vim.wo.colorcolumn = "121"
 
 vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<CR>", {desc = "Toggle wrap"})
 vim.keymap.set("i", "<localleader><localleader>", "<esc>", {desc = "Normal mode"})
+
