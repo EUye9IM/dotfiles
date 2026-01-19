@@ -24,9 +24,17 @@ return {
 		end,
 	},
 	{ "lewis6991/gitsigns.nvim", opts = {} },
-	{ "karb94/neoscroll.nvim", opts = {
-		easing = "sine",
-	} },
+	{
+		"karb94/neoscroll.nvim",
+		opts = { easing = "sine" },
+	},
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		opts = {--[[ things you want to change go here]]
+			open_mapping = [[<c-\>]],
+		},
+	},
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
