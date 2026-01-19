@@ -24,7 +24,9 @@ return {
 		end,
 	},
 	{ "lewis6991/gitsigns.nvim", opts = {} },
-	{ "karb94/neoscroll.nvim", opts = {} },
+	{ "karb94/neoscroll.nvim", opts = {
+		easing = "sine",
+	} },
 	{
 		"akinsho/bufferline.nvim",
 		event = "VeryLazy",
