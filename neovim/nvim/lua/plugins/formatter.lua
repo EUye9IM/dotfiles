@@ -5,6 +5,7 @@ local formatters_by_ft = {
 	rust = { "rustfmt" },
 	go = { "goimports" },
 	python = { "black" },
+	json = { "jq" },
 	-- ["*"] = {"codespell"},
 	-- ["_"] = { "trim_whitespace" }
 }
@@ -20,11 +21,15 @@ return {
 		formatters_by_ft = formatters_by_ft,
 		default_format_opts = { lsp_format = "fallback" },
 		notify_no_formatters = false,
+		format_on_save = {
+			-- I recommend these options. See :help conform.format for details.
+			lsp_format = "fallback",
+			timeout_ms = 500,
+		},
 	},
 	keys = {
 		{
-			-- Customize or remove this keymap to your liking
-			"<leader>f",
+			"<A-F>",
 			function()
 				require("conform").format({ async = true })
 			end,
