@@ -94,4 +94,8 @@ return {
 		},
 		cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
 	},
+	{
+		"sindrets/diffview.nvim",
+		opts = {},
+	},
 }
