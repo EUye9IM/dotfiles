@@ -20,7 +20,16 @@ return {
 		lazy = false,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			require("nvim-tree").setup({})
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+			---@type nvim_tree.config
+			opt = {
+				update_focused_file = {
+					enable = true,
+					update_root = true,
+				},
+			}
+			require("nvim-tree").setup(opt)
 		end,
 	},
 	{ "lewis6991/gitsigns.nvim", opts = {} },
