@@ -78,9 +78,19 @@ return {
 			-- optional but recommended
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-tree/nvim-web-devicons", opts = {} },
+			"jmacadie/telescope-hierarchy.nvim",
 		},
-		opt = {},
+		opt = {
+			extensions = {
+				hierarchy = {},
+			},
+		},
+		configs = function(_, opts)
+			require("telescope").setup(opts)
+			require("telescope").load_extension("hierarchy")
+		end,
 		keys = {
+			{ "<leader>to", "<cmd>Telescope hierarchy incoming_calls<cr>", desc = "查找调用树" },
 			{
 				"<leader>tf",
 				"<cmd>Telescope find_files<cr>",
