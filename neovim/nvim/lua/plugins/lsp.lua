@@ -28,6 +28,30 @@ return {
 		end,
 	},
 	{
+		"MysticalDevil/inlay-hints.nvim",
+		-- event = "LspAttach",
+		dependencies = { "neovim/nvim-lspconfig" }, -- optional
+		config = function()
+			vim.lsp.config("gopls", {
+				settings = {
+					gopls = {
+						hints = {
+							rangeVariableTypes = true,
+							parameterNames = true,
+							constantValues = true,
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							functionTypeParameters = true,
+						},
+					},
+				},
+			})
+			-- vim.lsp.inlay_hint.enable()
+			require("inlay-hints").setup()
+		end,
+	},
+	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {},
 		dependencies = {
@@ -60,37 +84,37 @@ return {
 			{
 				"<leader>tf",
 				"<cmd>Telescope find_files<cr>",
-				desc = "Telescope find_files 搜索文件名",
+				desc = "搜索文件名",
 			},
 			{
 				"<leader>tg",
 				"<cmd>Telescope live_grep<cr>",
-				desc = "Telescope live_grep 搜索文件内容",
+				desc = "搜索文件内容",
 			},
 			{
 				"<leader>ts",
 				"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-				desc = "Telescope lsp_dynamic_workspace_symbols 查找符号",
+				desc = "查找符号名",
 			},
 			{
 				"<leader>tr",
 				"<cmd>Telescope lsp_references<cr>",
-				desc = "Telescope lsp_references 查找引用",
+				desc = "查找引用",
 			},
 			{
 				"<leader>ti",
 				"<cmd>Telescope lsp_implementations<cr>",
-				desc = "Telescope lsp_implementations 查找实现",
+				desc = "查找实现",
 			},
 			{
 				"<leader>td",
 				"<cmd>Telescope lsp_definitions<cr>",
-				desc = "Telescope lsp_definitions 转到定义",
+				desc = "转到定义",
 			},
 			{
 				"<leader>tt",
 				"<cmd>Telescope lsp_type_definitions<cr>",
-				desc = "Telescope lsp_type_definitions 转类型定义",
+				desc = "转类型定义",
 			},
 		},
 	},
