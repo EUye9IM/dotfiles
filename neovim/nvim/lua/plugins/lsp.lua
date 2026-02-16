@@ -86,10 +86,6 @@ return {
 				hierarchy = {},
 			},
 		},
-		configs = function(_, opts)
-			require("telescope").setup(opts)
-			require("telescope").load_extension("hierarchy")
-		end,
 		keys = {
 			{ "<leader>to", "<cmd>Telescope hierarchy incoming_calls<cr>", desc = "查找调用树" },
 			{

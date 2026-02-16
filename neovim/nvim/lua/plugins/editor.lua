@@ -18,4 +18,15 @@ return {
 			require("ufo").setup()
 		end,
 	},
+	{
+		"rmagatti/auto-session",
+		lazy = false,
+		opts = {
+			suppressed_dirs = { "~/", "/" },
+		},
+		configs = function(_, opts)
+			vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+			require("auto-session").setup(opts)
+		end,
+	},
 }
