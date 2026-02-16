@@ -26,8 +26,8 @@ local options = {
 	display = { "uhex", "lastline" },
 	linebreak = true,
 	cursorline = true,
+	sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
 }
-
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
@@ -37,9 +37,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.wo.colorcolumn = "121"
 
-vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<CR>", {desc = "Toggle wrap"})
-vim.keymap.set("n", "：", ":", {desc = "Cmd"})
-vim.keymap.set("i", "<localleader><localleader>", "<esc>", {desc = "Normal mode"})
-vim.keymap.set("i", "、、", "<esc>", {desc = "Normal mode"})
-vim.keymap.set("t", "<localleader><localleader>", "<C-\\><C-n>", {desc = "Normal mode"})
-vim.keymap.set("t", "、、", "<C-\\><C-n>", {desc = "Normal mode"})
+vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<CR>", { desc = "Toggle wrap" })
+vim.keymap.set("n", "：", ":", { desc = "Cmd" })
+vim.keymap.set("i", "<localleader><localleader>", "<esc>", { desc = "Normal mode" })
+vim.keymap.set("i", "、、", "<esc>", { desc = "Normal mode" })
+vim.keymap.set("t", "<localleader><localleader>", "<C-\\><C-n>", { desc = "Normal mode" })
+vim.keymap.set("t", "、、", "<C-\\><C-n>", { desc = "Normal mode" })
