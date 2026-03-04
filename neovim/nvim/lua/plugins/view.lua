@@ -58,7 +58,7 @@ return {
 			opt = {
 				update_focused_file = {
 					enable = true,
-					update_root = true,
+					update_root = false,
 				},
 			}
 			require("nvim-tree").setup(opt)
