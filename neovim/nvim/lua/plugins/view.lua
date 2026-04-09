@@ -28,7 +28,12 @@ return {
 			require("lualine").setup({
 				sections = {
 					lualine_c = {
-						"filename",
+						{
+							"filename",
+							file_status = true, -- 显示文件状态 (readonly, modified)
+							path = 1,
+							shorting_target = 40, -- 路径过长时缩短的阈值
+						},
 						{ git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available },
 					},
 				},
