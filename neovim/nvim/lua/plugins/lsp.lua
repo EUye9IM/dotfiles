@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = { "nvim-treesitter/nvim-treesitter-context" },
-		branch = "master",
+		branch = "main", --"master",
 		lazy = false,
 		build = ":TSUpdate",
 		opts = {
@@ -25,7 +25,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("nvim-treesitter.configs").setup(opts)
+			require("nvim-treesitter.config").setup(opts)
 		end,
 	},
 	{
