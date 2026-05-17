@@ -7,3 +7,5 @@ if [[ "$TERM" == *"kitty"* ]] || [[ "$TERMINAL_EMULATOR" == *"kitty"* ]] || [[ -
         # echo "Kitty terminal detected - ssh alias enabled"
     fi
 fi
+alias ll='ls -lah --color'
+
