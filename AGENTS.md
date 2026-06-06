@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal config for neovim, zsh, tmux, and kitty.
+Personal config for neovim, zsh, tmux, and kitty. No build/test/lint pipeline — pure config files.
 
 ## Structure
 
@@ -27,9 +27,13 @@ Each subdirectory is a component with its own `setup.sh` that copies config file
 - `MKDIR path` — `mkdir -p`
 - `CHK cmd ...` — warn if command not found
 - `run_sub_scripts <path> <script> [dirs...]` — iterate subdirs running a script
+- `locate_dir` — returns the basename of cwd (used by component setup.sh for logging)
 
 ## Notes
 
-- `install.sh` is referenced in README but does not exist in repo (likely system-level package install, run separately before `setup.sh`)
-- Config files are **copied**, not symlinked — modifications in-repo must be re-copied
+- Config files are **copied**, not symlinked — modifying files in-repo does not update the live config; re-run `setup.sh` to deploy changes
 - All `setup.sh` scripts source `../utils.sh` from the repo root
+- `utils.sh` calls `raise_error` which is **not defined** in that file — sub-script failures will crash with "command not found"
+- `zsh/setup.sh` sets `LANG=${LANG:-C.UTF8}` before sourcing `.zshrc`
+- The `neovim/setup.sh` handles Cygwin path conversion via `cygpath` on Windows
+- `Containerfile` runs `setup.sh` then `nvim --headless +Lazy! sync +qa!` and `zsh -c ". ~/.zshrc"` to complete post-setup steps automatically

@@ -14,12 +14,13 @@ zsh/*.zsh            → ~/.zsh/（分段配置，按序号加载）
 
 | 文件 | 说明 |
 |---|---|
-| `20_zinit.zsh` | zinit 初始化及插件加载 |
-| `30_locale.zsh` | 本地化设置 |
-| `30_plugins.zsh` | 额外插件配置 |
+| `10_basic.zsh` | Shell 基础设置（locale、history、setopt、bindkey） |
+| `20_zinit.zsh` | zinit 插件管理器安装及加载 |
+| `30_plugins.zsh` | 插件加载及配置（autosuggest、p10k 等） |
+| `40_fzf.zsh` | fzf 快捷键、补全及 fzf-tab |
 | `50_alias.zsh` | 通用别名 |
+| `50_kitty.zsh` | Kitty 终端 ssh 别名 |
 | `50_gitalias.zsh` | Git 相关别名 |
-| `50_p10k.zsh` | powerlevel10k 主题加载 |
 | `50_proxy.zsh` | 代理开关函数 |
 | `80_complete.zsh` | 补全设置 |
 

@@ -38,16 +38,6 @@ podman run -it dotfiles
 
 复制 `.tmpl/` 模板目录，参考现有组件编写 `setup.sh`，并 `source ../utils.sh` 使用公共工具函数。
 
-## 工具函数 (utils.sh)
-
-| 函数 | 说明 |
-|---|---|
-| `CP from ... to` | 递归复制并备份已存在文件 (`cp -rfb`) |
-| `RM path` | 强制递归删除 (`rm -rf`) |
-| `MKDIR path` | 创建目录 (`mkdir -p`) |
-| `CHK cmd ...` | 检查命令是否存在，不存在则警告 |
-| `run_sub_scripts <path> <script> [dirs...]` | 遍历子目录执行脚本 |
-
 ## 注意事项
 
 - 配置仅针对当前用户生效，su 切换用户后需重新运行 `setup.sh`

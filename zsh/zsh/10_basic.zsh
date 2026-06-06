@@ -1,8 +1,8 @@
-# settings
+export LANG=zh_CN.UTF-8
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd beep extendedglob no_nomatch notify correct_all
+setopt autocd beep extendedglob no_nomatch notify
 bindkey -e
-# enable shift tab
 bindkey '^[[Z' reverse-menu-complete
