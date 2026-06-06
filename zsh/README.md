@@ -6,7 +6,8 @@
 
 ```
 zshrc                → ~/.zshrc（仅 source ~/.zsh/*.zsh）
-p10k                 → ~/.p10k.zsh（powerlevel10k 主题配置）
+p10k                 → ~/.p10k.zsh（普通用户主题，lean 风格）
+p10k-root            → ~/.p10k.zsh（root 用户主题，classic 风格）
 zsh/*.zsh            → ~/.zsh/（分段配置，按序号加载）
 ```
 

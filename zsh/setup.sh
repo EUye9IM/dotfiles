@@ -9,7 +9,11 @@ echo setting up $NAME ...
 CHK fzf git less zsh
 
 CP zshrc  ~/.zshrc
-CP p10k   ~/.p10k.zsh
+if [[ $EUID -eq 0 ]]; then
+    CP p10k-root ~/.p10k.zsh
+else
+    CP p10k   ~/.p10k.zsh
+fi
 MKDIR ~/.zsh/
 CP zsh/*  ~/.zsh/
 
