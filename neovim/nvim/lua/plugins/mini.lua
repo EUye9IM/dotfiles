@@ -12,7 +12,6 @@ return {
 		opts = {
 			draw = {
 				delay = 100,
-				animation = function() end,
 			},
 			symbol = "│",
 			options = { try_as_border = true },
