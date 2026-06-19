@@ -25,13 +25,14 @@ local options = {
 	swapfile = false,
 	display = { "uhex", "lastline" },
 	linebreak = true,
-	cursorline = true,
 	sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions",
 }
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end
+
+vim.opt.cursorline = not vim.g.low_bandwidth
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

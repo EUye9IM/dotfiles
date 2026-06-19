@@ -31,10 +31,12 @@ return {
 	},
 	{
 		"dstein64/nvim-scrollview",
+		enabled = not vim.g.low_bandwidth,
 		opts = {},
 	},
 	{
 		"karb94/neoscroll.nvim",
+		enabled = not vim.g.low_bandwidth,
 		opts = { easing = "sine" },
 	},
 }
