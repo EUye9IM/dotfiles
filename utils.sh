@@ -28,8 +28,14 @@ function CP(){
 	if [[ $# -lt 2 ]]; then
 		return
 	fi
-	echo "cp -rfb $*"
-	cp -rfb $*
+	local cp_opts="-rf"
+	if cp --help 2>&1 | head -1 | grep -qi 'busybox'; then
+		cp_opts="-rf"
+	else
+		cp_opts="-rfb"
+	fi
+	echo "cp $cp_opts $*"
+	cp $cp_opts $*
 }
 
 function CHK(){
