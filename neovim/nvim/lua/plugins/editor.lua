@@ -27,9 +27,27 @@ return {
 		opts = {
 			suppressed_dirs = { "~", "/" },
 			bypass_save_filetypes = { "alpha" },
+			close_filetypes_on_save = { "checkhealth", "toggleterm" },
 			session_lens = {
 				picker = "telescope", -- "telescope"|"snacks"|"fzf"|"select"|nil Pickers are detected automatically but you can also manually choose one. Falls back to vim.ui.select
 				load_on_setup = true,
+			},
+			pre_save_cmds = {
+				function()
+					pcall(function()
+						require("nvim-tree.api").tree.close()
+					end)
+				end,
+			},
+			post_restore_cmds = {
+				function()
+					pcall(function()
+						local api = require("nvim-tree.api")
+						api.tree.open()
+						api.tree.change_root(vim.fn.getcwd())
+						api.tree.reload()
+					end)
+				end,
 			},
 		},
 		keys = {

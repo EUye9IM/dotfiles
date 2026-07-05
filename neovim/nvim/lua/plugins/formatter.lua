@@ -6,6 +6,7 @@ local formatters_by_ft = {
 	go = { "goimports" },
 	python = { "black" },
 	json = { "jq" },
+	jsonc = { "prettier" },
 	-- ["*"] = {"codespell"},
 	-- ["_"] = { "trim_whitespace" }
 }

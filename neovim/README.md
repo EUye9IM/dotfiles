@@ -14,16 +14,23 @@ nvim/
     └── plugins/
         ├── completion.lua      # nvim-cmp 补全引擎
         ├── editor.lua          # 编辑器增强（括号、注释、折叠、会话）
+        ├── filetree.lua        # nvim-tree 文件浏览器
+        ├── filetype.lua        # 文件类型增强（markdown/csv/log）
         ├── formatter.lua       # conform.nvim 格式化
-        ├── lsp.lua             # LSP、treesitter、telescope
+        ├── git.lua             # Git 工具（gitsigns/blame/diffview）
+        ├── lsp.lua             # LSP（mason/lspconfig/inlay-hints/lazydev）
+        ├── telescope.lua       # telescope 模糊查找器
+        ├── terminal.lua        # toggleterm 终端
         ├── testing.lua         # vim-test 测试运行
-        ├── view.lua            # 界面外观（主题、状态栏、文件树等）
+        ├── theme.lua           # tokyonight 主题
+        ├── treesitter.lua      # treesitter 语法引擎
+        ├── ui.lua              # 界面组件（lualine/bufferline/scrollview/neoscroll）
         └── whichkey.lua        # which-key 快捷键提示
 ```
 
 ## 插件一览
 
-### LSP 与语言支持
+### 语法与 LSP
 
 | 插件 | 说明 |
 |---|---|
@@ -33,6 +40,11 @@ nvim/
 | `mason-org/mason.nvim` | LSP/DAP/linter 安装器 |
 | `neovim/nvim-lspconfig` | LSP 客户端配置 |
 | `folke/lazydev.nvim` | Lua 语言服务增强 |
+
+### 查找
+
+| 插件 | 说明 |
+|---|---|
 | `nvim-telescope/telescope.nvim` | 模糊查找器 |
 | `nvim-lua/plenary.nvim` | telescope 依赖库 |
 | `nvim-telescope/telescope-fzf-native.nvim` | fzf 加速排序 |
@@ -58,20 +70,45 @@ nvim/
 | `kevinhwang91/nvim-ufo` | 代码折叠 |
 | `rmagatti/auto-session` | 自动会话保存/恢复 |
 
-### 界面外观
+### 主题
 
 | 插件 | 说明 |
 |---|---|
 | `folke/tokyonight.nvim` | 主题（tokyonight-night） |
-| `nvim-lualine/lualine.nvim` | 状态栏 |
-| `f-person/git-blame.nvim` | 行内 git blame |
-| `dstein64/nvim-scrollview` | 滚动条指示器 |
-| `nvim-tree/nvim-tree.lua` | 文件浏览器 |
-| `lewis6991/gitsigns.nvim` | Git 变更标记 |
-| `karb94/neoscroll.nvim` | 平滑滚动 |
-| `akinsho/toggleterm.nvim` | 浮动/水平终端 |
+
+### 界面组件
+
+| 插件 | 说明 |
+|---|---|
+| `nvim-lualine/lualine.nvim` | 状态栏（集成 git-blame） |
 | `akinsho/bufferline.nvim` | 标签栏 |
+| `dstein64/nvim-scrollview` | 滚动条指示器 |
+| `karb94/neoscroll.nvim` | 平滑滚动 |
+
+### 文件浏览器
+
+| 插件 | 说明 |
+|---|---|
+| `nvim-tree/nvim-tree.lua` | 文件浏览器 |
+
+### 终端
+
+| 插件 | 说明 |
+|---|---|
+| `akinsho/toggleterm.nvim` | 浮动/水平终端 |
+
+### Git
+
+| 插件 | 说明 |
+|---|---|
+| `lewis6991/gitsigns.nvim` | Git 变更标记 |
+| `f-person/git-blame.nvim` | 行内 git blame |
 | `sindrets/diffview.nvim` | Git diff 查看器 |
+
+### 文件类型增强
+
+| 插件 | 说明 |
+|---|---|
 | `MeanderingProgrammer/render-markdown.nvim` | Markdown 渲染 |
 | `hat0uma/csvview.nvim` | CSV 表格查看 |
 | `fei6409/log-highlight.nvim` | 日志文件高亮 |
