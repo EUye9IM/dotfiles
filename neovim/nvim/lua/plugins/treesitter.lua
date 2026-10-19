@@ -5,7 +5,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-context",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
-		branch = "main",
+		branch = "master", -- legacy highlight/indent/textobjects config below uses the master API
 		lazy = false,
 		build = ":TSUpdate",
 		opts = {
@@ -58,7 +58,7 @@ return {
 			},
 		},
 		config = function(_, opts)
-			require("nvim-treesitter.config").setup(opts)
+			require("nvim-treesitter.configs").setup(opts)
 		end,
 	},
 }
