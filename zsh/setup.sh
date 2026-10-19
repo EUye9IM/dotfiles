@@ -8,14 +8,14 @@ echo setting up $NAME ...
 
 CHK fzf git less zsh
 
-CP zshrc  ~/.zshrc
+CP zshrc ~/.zshrc || exit $?
 if [[ $EUID -eq 0 ]]; then
-    CP p10k-root ~/.p10k.zsh
+    CP p10k-root ~/.p10k.zsh || exit $?
 else
-    CP p10k   ~/.p10k.zsh
+    CP p10k ~/.p10k.zsh || exit $?
 fi
-MKDIR ~/.zsh/
-CP zsh/*  ~/.zsh/
+MKDIR ~/.zsh/ || exit $?
+CP zsh/* ~/.zsh/ || exit $?
 
 export LANG=${LANG:-C.UTF8}
 

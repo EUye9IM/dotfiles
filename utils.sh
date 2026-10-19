@@ -31,11 +31,37 @@ function CP(){
 	local cp_opts="-rf"
 	if cp --help 2>&1 | head -1 | grep -qi 'busybox'; then
 		cp_opts="-rf"
+	elif [[ $(uname -s) == Darwin ]] && ! cp -b /dev/null /dev/null >/dev/null 2>&1; then
+		# BSD cp has no -b. Back up each existing destination before copying.
+		local dest=${!#} src target backup n
+		local -a sources=("${@:1:$#-1}")
+		for src in "${sources[@]}"; do
+			if [[ -d $dest ]]; then
+				target=$dest/${src##*/}
+			else
+				target=$dest
+			fi
+			if [[ -e $target || -L $target ]]; then
+				backup=${target}~
+				if [[ -e $backup || -L $backup ]]; then
+					n=1
+					while [[ -e ${target}.backup.$n || -L ${target}.backup.$n ]]; do
+						((n++))
+					done
+					backup=${target}.backup.$n
+				fi
+				echo "cp -Rp $target $backup"
+				cp -Rp "$target" "$backup" || return $?
+			fi
+		done
+		echo "cp -Rf ${sources[*]} $dest"
+		cp -Rf "${sources[@]}" "$dest"
+		return $?
 	else
 		cp_opts="-rfb"
 	fi
 	echo "cp $cp_opts $*"
-	cp $cp_opts $*
+	cp $cp_opts "$@"
 }
 
 function CHK(){
@@ -64,13 +90,7 @@ function run_sub_scripts() {
 		if [[ -d $path/$dir && -f $path/$dir/$script_name ]]; then
 			echo ' ==> ' $path/$dir/$script_name
 			echo
-			cd $path/$dir
-			bash $script_name
-			local co=$?
-			if [[ $co -ne 0 ]]; then
-				raise_error "$path/$dir/$script_name" exit with code: $co
-			fi
-			cd - &>/dev/null
+			(cd "$path/$dir" && bash "$script_name") || return $?
 			echo
 		fi
 	done
