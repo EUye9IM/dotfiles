@@ -16,6 +16,12 @@ return {
 			local cmp = require("cmp")
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+			vim.keymap.set("i", "<C-x><C-l>", function()
+				vim.schedule(function()
+					vim.cmd.stopinsert()
+					vim.lsp.buf.code_action()
+				end)
+			end, { desc = "Code actions" })
 			local o = {
 				snippet = {
 					expand = function(args)
@@ -25,6 +31,8 @@ return {
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-x><C-o>"] = cmp.mapping.complete(),
+					["<C-x><C-z>"] = cmp.mapping.abort(),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.

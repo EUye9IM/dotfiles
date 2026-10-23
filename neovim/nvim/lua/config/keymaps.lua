@@ -13,6 +13,17 @@ vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "重命名" })
 -- Diagnostics
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "下一个诊断" })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "上一个诊断" })
+vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "下一个诊断" })
+vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "上一个诊断" })
 
 -- Project search
 vim.keymap.set("n", "g/", "<cmd>Telescope live_grep<cr>", { desc = "项目搜索" })
+vim.keymap.set("n", "g<Space>", "<cmd>Telescope resume<cr>", { desc = "打开当前搜索结果" })
+vim.keymap.set("n", "<C-w>gd", function()
+	vim.cmd("vsplit")
+	vim.lsp.buf.definition()
+end, { desc = "分屏跳转到定义" })
+vim.keymap.set("n", "<C-w>gD", function()
+	vim.cmd("vsplit")
+	vim.lsp.buf.type_definition()
+end, { desc = "分屏跳转到类型定义" })
