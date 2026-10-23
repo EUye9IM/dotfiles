@@ -23,7 +23,7 @@ zsh/*.zsh            → ~/.zsh/（分段配置，按序号加载）
 | `50_kitty.zsh` | Kitty 终端 ssh 别名 |
 | `50_gitalias.zsh` | Git 相关别名 |
 | `50_proxy.zsh` | 代理开关函数 |
-| `80_complete.zsh` | 补全设置 |
+| `80_complete.zsh` | 补全设置（包含 Bun 自带补全） |
 
 ## 插件
 
