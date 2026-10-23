@@ -122,50 +122,7 @@ nvim/
 
 ## 快捷键
 
-### 全局
-
-| 模式 | 按键 | 功能 |
-|---|---|---|
-| `n` | `<leader>w` | 切换换行 |
-| `n` | `：`（全角冒号） | 进入命令模式（中文输入法适配） |
-| `i` | `<localleader><localleader>` | 退出插入模式 |
-| `i` | `、、`（中文逗号） | 退出插入模式 |
-| `t` | `<localleader><localleader>` | 退出终端模式 |
-| `t` | `、、` | 退出终端模式 |
-| `n` / `v` | `<leader>f` | 格式化缓冲区 |
-
-### Telescope
-
-| 模式 | 按键 | 功能 |
-|---|---|---|
-| `n` | `<leader>to` | 调用树（incoming calls） |
-| `n` | `<leader>tf` | 搜索文件 |
-| `n` | `<leader>tg` | 搜索内容 |
-| `n` | `<leader>ts` | 搜索符号 |
-| `n` | `<leader>tr` | 查找引用 |
-| `n` | `<leader>ti` | 查找实现 |
-| `n` | `<leader>td` | 跳转到定义 |
-| `n` | `<leader>tt` | 跳转到类型定义 |
-
-### 测试
-
-| 模式 | 按键 | 功能 |
-|---|---|---|
-| `n` | `<localleader>tt` | 运行当前测试 |
-| `n` | `<localleader>tl` | 重新运行上次测试 |
-| `n` | `<localleader>tv` | 跳转测试文件 |
-| `n` | `<localleader>tf` | 运行文件内所有测试 |
-
-### 其他
-
-| 模式 | 按键 | 功能 |
-|---|---|---|
-| `n` | `<leader>ss` | 搜索会话列表 |
-| `n` | `<localleader>vm` | 切换 Markdown 渲染 |
-| `n` / `v` | `<localleader>vc` | 切换 CSV 表格视图 |
-| `n` | `<leader>?` | 显示缓冲区快捷键 |
-| `i` | `<C-Space>` | 触发补全 |
-| `i` | `<CR>` | 确认补全 |
+快捷键已集中整理在[快捷键说明](keybindings.md)，覆盖全局编辑、LSP、诊断、搜索、Tree-sitter、文本对象、Git、补全、文件类型、测试与会话映射。另见[与 Zed Vim Mode 的对照说明](neovim-keybindings-vs-zed.md)。
 
 ## 特色
 
