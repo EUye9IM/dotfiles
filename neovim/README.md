@@ -34,7 +34,8 @@ nvim/
 
 | 插件 | 说明 |
 |---|---|
-| `nvim-treesitter/nvim-treesitter` | 语法高亮、折叠、缩进 |
+| `nvim-treesitter/nvim-treesitter` (`main`) | Neovim 0.12+ parser/query 管理；启用高亮与缩进 |
+| `nvim-treesitter/nvim-treesitter-textobjects` (`main`) | 语法文本对象与跳转 |
 | `nvim-treesitter/nvim-treesitter-context` | 代码上下文提示 |
 | `MysticalDevil/inlay-hints.nvim` | LSP inlay 提示（gopls） |
 | `mason-org/mason.nvim` | LSP/DAP/linter 安装器 |
