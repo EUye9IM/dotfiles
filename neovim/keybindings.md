@@ -152,4 +152,4 @@ Neovim 0.12 自带的 LSP 映射也保留启用，例如 `grn` 重命名、`gra`
 
 ## VS Code
 
-在 vscode-neovim 中，Neovim 原生按键与 `mini.ai`、surround、exchange 等编辑类映射保持不变；由 VS Code 负责的语言服务和界面操作通过 `vscode/keybindings.json` 绑定。具体范围与差异见 [VS Code 说明](vscode/README.md)。
+在 vscode-neovim 中，Neovim 原生按键与 `mini.ai`、surround、exchange 等编辑类映射保持不变；需要 VS Code 执行的操作（诊断、搜索、格式化等）在 `config/keymaps.lua` 的 `vim.g.vscode` 分支中通过 `require("vscode").action()` 调用，不修改 VS Code 自己的配置。具体范围与差异见 [VS Code 说明](vscode/README.md)。
