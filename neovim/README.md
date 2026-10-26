@@ -122,7 +122,7 @@ nvim/
 
 ## 快捷键
 
-快捷键已集中整理在[快捷键说明](keybindings.md)，覆盖全局编辑、LSP、诊断、搜索、Tree-sitter、文本对象、Git、补全、文件类型、测试与会话映射。另见[与 Zed Vim Mode 的对照说明](neovim-keybindings-vs-zed.md)。
+快捷键已集中整理在[快捷键说明](keybindings.md)，覆盖全局编辑、LSP、诊断、搜索、Tree-sitter、文本对象、Git、补全、文件类型、测试与会话映射。另见[与 Zed Vim Mode 的对照说明](neovim-keybindings-vs-zed.md)，以及 [VS Code（vscode-neovim）配置](vscode/README.md)。
 
 ## 特色
 

@@ -149,3 +149,7 @@ Neovim 0.12 自带的 LSP 映射也保留启用，例如 `grn` 重命名、`gra`
 - `nvim-cmp` 命令行补全使用其默认 cmdline 映射。
 - Telescope 当前只额外配置 `g/`、`g<Space>` 及 picker 内的 `<C-w><Space>`；README 旧版曾列出的 `<leader>tf`、`<leader>tg` 等组合并未在现有配置里定义。
 - 多光标插件没有加入本快捷键表的 Zed 对齐范围；配置仅启用 `gl`、`ga`、`g>` 这几个 `vim-visual-multi` 映射。
+
+## VS Code
+
+在 vscode-neovim 中，Neovim 原生按键与 `mini.ai`、surround、exchange 等编辑类映射保持不变；由 VS Code 负责的语言服务和界面操作通过 `vscode/keybindings.json` 绑定。具体范围与差异见 [VS Code 说明](vscode/README.md)。

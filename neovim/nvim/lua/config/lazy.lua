@@ -1,7 +1,3 @@
-if vim.g.vscode then
-	return
-end
-
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -23,11 +19,22 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 -- Setup lazy.nvim
-require("lazy").setup({
+--
+-- VS Code (vscode-neovim) gets a small editing-only plugin set instead of the
+-- full configuration, because VS Code already owns highlighting, LSP,
+-- completion, diagnostics and file management.
+local spec
+if vim.g.vscode then
+	spec = require("config.vscode")
+else
 	spec = {
 		-- import your plugins
 		{ import = "plugins" },
-	},
+	}
+end
+
+require("lazy").setup({
+	spec = spec,
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
 	-- install = { colorscheme = { "habamax" } },

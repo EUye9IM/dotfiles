@@ -16,9 +16,11 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "上一个诊断" }
 vim.keymap.set("n", "g]", vim.diagnostic.goto_next, { desc = "下一个诊断" })
 vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, { desc = "上一个诊断" })
 
--- Project search
-vim.keymap.set("n", "g/", "<cmd>Telescope live_grep<cr>", { desc = "项目搜索" })
-vim.keymap.set("n", "g<Space>", "<cmd>Telescope resume<cr>", { desc = "打开当前搜索结果" })
+-- Project search (Telescope is not available in VS Code)
+if not vim.g.vscode then
+	vim.keymap.set("n", "g/", "<cmd>Telescope live_grep<cr>", { desc = "项目搜索" })
+	vim.keymap.set("n", "g<Space>", "<cmd>Telescope resume<cr>", { desc = "打开当前搜索结果" })
+end
 vim.keymap.set("n", "<C-w>gd", function()
 	vim.cmd("vsplit")
 	vim.lsp.buf.definition()
